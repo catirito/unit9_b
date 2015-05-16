@@ -15,7 +15,7 @@ public class AlumnoTest {
 	public final void testValidaNif() {
 		assertEquals(true, al.validaNif("04084432T"));
 		assertEquals(false, al.validaNif("x4084432T"));
-		assertEquals(false, al.validaNif("12345678A"));
+		assertEquals(false, al.validaNif("1234567890A"));
 		assertEquals(true, al.validaNif("15031437V"));
 		assertEquals(true, al.validaNif("62831897Z"));
 		assertEquals(false, al.validaNif("V5031437V"));
@@ -25,10 +25,23 @@ public class AlumnoTest {
 		assertEquals(false, al.validaNif(""));
 	}
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public final void testCalculaTasaMatricula() {
+		String f = "2000.0";
+		String res = ""+al.calculaTasaMatricula(10, false, true);
+		//System.out.println(f +" "+ res);
+		assertEquals(f, res);
 		
+		f = "250.0";
+		res = ""+al.calculaTasaMatricula(65, false, true);
+		//System.out.println(f +" "+ res);
+		assertEquals(f, res);
 		
+		f = "400.0";
+		res = ""+al.calculaTasaMatricula(55, false, true);
+		//System.out.println(f +" "+ res);
+		assertEquals(f, res);
 		
 		
 	}
