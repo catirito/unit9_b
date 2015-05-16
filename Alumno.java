@@ -8,10 +8,12 @@ import java.util.regex.Pattern;
  * @author Rosa Medina
  */
 public class Alumno {
+	
     public boolean validaNif(String nif) {
         if (nif.length() != 9 || nif == null) {
             return false;
         }
+        
         String dni = nif.substring(0, 8);
         char letra = nif.charAt(8);
         Pattern pattern = Pattern.compile("[0-9]{8,8}");
@@ -27,6 +29,7 @@ public class Alumno {
         char letraEsperada = letras.charAt(indice);
         return matcher.matches() && letra == letraEsperada;
     }   
+    
     public float calculaTasaMatricula(int edad, boolean familiaNumerosa,
             boolean repetidor) {
         float tasa = 500.00f;
@@ -42,4 +45,5 @@ public class Alumno {
         }
         return tasa;
     }
+    
 }
